@@ -33,9 +33,9 @@ const Map = forwardRef(({openDialog, setRegionViewData, updateMap, setUpdateMap}
 
     const mapContainer = useRef(null);
     const [map, setMap] = useState(null);
-    const [lng, setLng] = useState(10.447683);
-    const [lat, setLat] = useState(51.163361);
-    const [zoom, setZoom] = useState(5.5);
+    const [lng, setLng] = useState(-107.3701249);
+    const [lat, setLat] = useState(58.115092);
+    const [zoom, setZoom] = useState(2.5);
     const [showLoadingOverlay, setShowLoadingOverlay] = useState(true);
     const clipboard = useClipboard();
     const [actions, setActions] = useState([]);
@@ -117,7 +117,7 @@ const Map = forwardRef(({openDialog, setRegionViewData, updateMap, setUpdateMap}
     const styles = [
         {
             title: "Dark",
-            uri: "mapbox://styles/nachwahl/cl2nl1qes00bn14ksw5y85arm"
+            uri: "mapbox://styles/mapbox/dark-v9"
         },
         {
             title: "Light",

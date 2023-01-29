@@ -267,7 +267,7 @@ const RegionView = ({data, open, setOpen, setUpdateMap}) => {
                             {region.isEventRegion ?
                                 <Alert icon={<GiPartyPopper size={16}/>} sx={{width: "100%"}} title="Event Region"
                                        color="red">
-                                    This is an Event Region, which was built as part of a BTE Germany Event. Therefore,
+                                    This is an Event Region, which was built as part of a Build Team Event. Therefore,
                                     it
                                     has no owner.
                                 </Alert>

@@ -89,7 +89,7 @@ const Link = props => {
                         <Stepper.Step label="First step" description="Connect to the server" py={"md"}>
                             First connect to our server. To to that, open Minecraft and click on "Multiplayer". Then
                             click
-                            on "Direct connect" and enter <Code>bte-germany.de</Code> in the IP field.
+                            on "Direct connect" and enter <Code>btecanada.net</Code> in the IP field.
                         </Stepper.Step>
                         <Stepper.Step label="Second step" description="Get your link code" py={"md"}>
                             Now press <Kbd>T</Kbd> to open your chat. Here, enter <Code>/map link</Code> and press

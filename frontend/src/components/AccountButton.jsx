@@ -66,15 +66,15 @@ const AccountButton = props => {
 
                 <Menu.Divider/>
                 <Menu.Label>About</Menu.Label>
-                <Menu.Item component={"a"} href="https://buildthe.earth/de-d" target={"_blank"}
+                <Menu.Item component={"a"} href="https://discord.gg/bYCUabBy86" target={"_blank"}
                            icon={<FaDiscord size={14}/>}>Discord
                     Server</Menu.Item>
-                <Menu.Item component={"a"} href="https://bte-germany.de" target={"_blank"}
-                           icon={<FiGlobe size={14}/>}>Website</Menu.Item>
+                {/*
                 <Menu.Item component={"a"} href="https://robinferch.me/legal" target={"_blank"}
                            icon={<IoMdPaper size={14}/>}>Impressum</Menu.Item>
                 <Menu.Item component={"a"} href="https://robinferch.me/privacy" target={"_blank"}
                            icon={<MdOutlinePrivacyTip size={14}/>}>Privacy policy</Menu.Item>
+                */}
             </Menu.Dropdown>
         </Menu>
 

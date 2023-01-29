@@ -89,7 +89,7 @@ const Stats = props => {
                                 /></Grid.Col>
                                 <Grid.Col sm={12} lg={6}><StatsCard icon={<BiArea/>} title={"Total area of all regions"}
                                                                     value={numberWithCommas(generalStats.totalArea) + " m²"}
-                                                                    valueSmall={"this is about " + ((generalStats.totalArea / 357386000000) * 100).toFixed(10).toLocaleString() + "% of Germany's area"}/></Grid.Col>
+                                                                    valueSmall={"this is about " + ((generalStats.totalArea / 357386000000) * 100).toFixed(10).toLocaleString() + "% of Canada-USA's area"}/></Grid.Col>
                             </Grid>
 
                             <Title my={"md"}>Leaderboard</Title>
@@ -108,10 +108,10 @@ const Stats = props => {
                                         return (
                                             <tr key={idx}>
                                                 {
-                                                    player.username === "BTE Germany Event" || player.username == "Plot Region" ?
+                                                    player.username === "Build Team Event" || player.username == "Plot Region" ?
                                                         <td style={{display: "flex", alignItems: "center", gap: "5px"}}>
                                                             <img
-                                                                src={`https://bte-germany.de/logo.gif`}
+                                                                src={`https://cdn.discordapp.com/attachments/773657437177118730/1060269037382270976/usaCANlogo.png`}
                                                                 alt="" width={20}/> {player.username}</td> :
                                                         <td style={{display: "flex", alignItems: "center", gap: "5px"}}>
                                                             <img

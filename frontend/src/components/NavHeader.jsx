@@ -152,8 +152,8 @@ const NavHeader = ({mapRef}) => {
             <Header height={HEADER_HEIGHT} className={classes.root}>
                 <Container className={classes.header}>
                     <Box className={classes.logo}>
-                        <img src="https://bte-germany.de/logo.gif" alt="" width={35}/>
-                        <span>BTE Germany Map</span>
+                        <img src="https://cdn.discordapp.com/attachments/773657437177118730/1060269037382270976/usaCANlogo.png" alt="" width={35}/>
+                        <span>BTE CU Map</span>
                     </Box>
                     <Box className={classes.options}>
                         <Group spacing={5} className={classes.links} mr={"md"}>

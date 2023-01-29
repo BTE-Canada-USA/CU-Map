@@ -51,7 +51,7 @@ class DiscordIntegration {
             .setDescription('There is a new reported region. Please check it!')
             .setThumbnail('https://i.imgur.com/iaGxG9Y.png')
             .addField("Region ID", regionId || "", true)
-            .addField("Link to Region", `[Click here](https://map.bte-germany.de?region=${regionId}&details=true)`, true)
+            .addField("Link to Region", `[Click here](https://map.btecanada.net?region=${regionId}&details=true)`, true)
             .addField("Region Owner", region.username || "", true)
             .addField("Report by", reportedBy || "", true)
             .addField("Report Reason", reason || "", true)
