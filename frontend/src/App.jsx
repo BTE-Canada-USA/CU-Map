@@ -22,7 +22,7 @@ import {ErrorBoundary} from "./components/ErrorBoundary";
 
 function App() {
     const keycloak = new Keycloak({
-        "url": "https://auth.bte-germany.de", "realm": "btegermany", "clientId": "mapfrontend"
+        "url": "https://auth.btecanada.net", "realm": "map", "clientId": "frontendmap"
     });
     const [colorScheme, setColorScheme] = useState(window.localStorage.getItem("color-scheme") || "dark");
     const toggleColorScheme = (value) => {

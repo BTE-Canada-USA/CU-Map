@@ -43,8 +43,8 @@ class Core {
             this.web.startWebserver();
         })
         this.discord = new DiscordIntegration(this);
-        this.s3 = new S3Controller(this);
-        this.search = new SearchController(this);
+        //this.s3 = new S3Controller(this);
+        //this.search = new SearchController(this);
     }
 
     private setUpLogger(): void {
