@@ -10,7 +10,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Checkbox, Paper, Progress, Title, Badge, Group, Alert} from "@mantine/core";
 import axios from "axios";
 import {useKeycloak} from "@react-keycloak-fork/web";
-import {AiFillWarning, AiOutlineWarning, IoWarningOutline} from "react-icons/all";
+import {IoWarningOutline} from "react-icons/all";
 import {showNotification} from "@mantine/notifications";
 
 const AdminGeneral = props => {
@@ -51,7 +51,7 @@ const AdminGeneral = props => {
         axios.get(`/api/v1/admin/recalculateBuildings${skipOld ? "?skipOld=true" : ""}`, {headers: {authorization: "Bearer " + keycloak.token}}).then(({data}) => {
             showNotification({
                 title: "Ok",
-                message: `${data.count} Regionen werden neu berechnet`
+                message: `Calcuated Buildings in ${data.count} Regions`
             })
         })
     }
@@ -61,7 +61,7 @@ const AdminGeneral = props => {
         axios.get(`/api/v1/admin/getOsmDisplayNames${skipOld ? "?skipOld=true" : ""}`, {headers: {authorization: "Bearer " + keycloak.token}}).then(({data}) => {
             showNotification({
                 title: "Ok",
-                message: `Von ${data.count} Regionen werden die OSM Namen geholt.`,
+                message: `Got OSM names for ${data.count} Regions`,
                 color: "hreen"
             })
         })
@@ -75,8 +75,8 @@ const AdminGeneral = props => {
         })
         await axios.get(`/api/v1/admin/syncWithSearchDB`, {headers: {authorization: "Bearer " + keycloak.token}})
         showNotification({
-            title: 'Fertig',
-            message: 'Synchronisierung abgeschlossen',
+            title: 'Finished',
+            message: 'Sync complete',
             color: "green"
         })
     }
@@ -88,11 +88,11 @@ const AdminGeneral = props => {
             <Paper withBorder shadow={"md"} radius={"md"} p={"xl"} mt={"md"}>
                 <Group>
                     <Title>Buildings</Title>
-                    <Badge>Aktuell {allBuildingsCount} Gebäude</Badge>
+                    <Badge>Current {allBuildingsCount} Buildings</Badge>
                 </Group>
 
                 <Button mt={"xl"} loading={progress > 0} onClick={() => start()}>Anzahl der Buildings berechnen</Button>
-                <Checkbox label={"Nur neue Regionen (Regionen mit Anzahl > 0 werden übersprungen)"} mt={"md"}
+                <Checkbox label={"New regions only (regions with count > 0 will be skipped."} mt={"md"}
                           value={skipOld} onChange={(event) => setSkipOld(event.currentTarget.checked)}/>
                 {
                     progress > 0 &&
@@ -108,9 +108,9 @@ const AdminGeneral = props => {
                 </Group>
 
                 <Alert color={"red"} icon={<IoWarningOutline size={18}/>} mt={"sm"}>
-                    Der gesamte Index wird gelöscht und danach neu erstellt!
+                    All search items will be deleted and then recrated!
                 </Alert>
-                <Button color={"red"} mt={"md"} onClick={() => syncSearch()}>Daten neu synchronisieren</Button>
+                <Button color={"red"} mt={"md"} onClick={() => syncSearch()}>Resync Search Data</Button>
             </Paper>
 
             <Paper withBorder shadow={"md"} radius={"md"} p={"xl"} mt={"md"}>
@@ -118,9 +118,8 @@ const AdminGeneral = props => {
                     <Title>OSM Display Name</Title>
                 </Group>
 
-                <Button mt={"xl"} loading={osmProgress > 0} onClick={() => startOsm()}>OSM Display Name neu
-                    holen</Button>
-                <Checkbox label={"Nur neue Regionen (Regionen mit Display Name werden übersprungen)"} mt={"md"}
+                <Button mt={"xl"} loading={osmProgress > 0} onClick={() => startOsm()}>Get New OSM Display Names</Button>
+                <Checkbox label={"New regions only (regions with display names are skipped)"} mt={"md"}
                           value={skipOldOsm} onChange={(event) => setSkipOldOsm(event.currentTarget.checked)}/>
                 {
                     osmProgress > 0 &&

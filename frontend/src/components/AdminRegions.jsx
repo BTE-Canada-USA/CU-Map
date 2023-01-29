@@ -126,12 +126,12 @@ const AdminRegions = () => {
             {
                 isLoading ? <p>Loading...</p> :
                     <Group>
-                        <Select value={sortBy} placeholder="Sortierung" onChange={sortChange} data={[
+                        <Select value={sortBy} placeholder="Sort" onChange={sortChange} data={[
                             {value: 'id', label: 'ID'},
-                            {value: 'city', label: 'Stadt'},
-                            {value: 'area', label: 'Fläche'},
-                            {value: 'username', label: 'Besitzer'},
-                            {value: 'createdAt', label: 'Datum'},
+                            {value: 'city', label: 'City'},
+                            {value: 'area', label: 'Area m^2'},
+                            {value: 'username', label: 'Username'},
+                            {value: 'createdAt', label: 'Created'},
                         ]} />
                         <Select value={sortOrder} onChange={sortOrderChange} data={[
                             {value: 'asc', label: 'aufsteigend'},
@@ -140,11 +140,11 @@ const AdminRegions = () => {
                         <Table>
                             <thead>
                                 <tr>
-                                    <th>Stadt</th>
-                                    <th>Fläche</th>
-                                    <th>Besitzer</th>
-                                    <th>Aktionen</th>
-                                    <th>Erstellt</th>
+                                    <th>City</th>
+                                    <th>Area m^2</th>
+                                    <th>Owner</th>
+                                    <th>Actions</th>
+                                    <th>Created</th>
                                 </tr>
                             </thead>
                             <tbody>{rows}</tbody>

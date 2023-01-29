@@ -43,19 +43,19 @@ const Admin = () => {
             <NavHeader/>
             <Container mt={"md"}>
                 <Title>Administration</Title>
-                <Tabs defaultValue="Allgemein" mt={"md"}>
+                <Tabs defaultValue="General" mt={"md"}>
                     <Tabs.List>
-                        <Tabs.Tab value="Allgemein" icon={<BiCog size={20}/>}>Allgemein</Tabs.Tab>
-                        <Tabs.Tab value="Benutzer" icon={<FiUsers size={20}/>}>Benutzer</Tabs.Tab>
-                        <Tabs.Tab value="Regionen" icon={<HiOutlineMap size={20}/>}>Regionen</Tabs.Tab>
+                        <Tabs.Tab value="General" icon={<BiCog size={20}/>}>General</Tabs.Tab>
+                        <Tabs.Tab value="Users" icon={<FiUsers size={20}/>}>Users</Tabs.Tab>
+                        <Tabs.Tab value="Regions" icon={<HiOutlineMap size={20}/>}>Regions</Tabs.Tab>
                     </Tabs.List>
-                    <Tabs.Panel value="Benutzer">
+                    <Tabs.Panel value="Users">
                         <AdminUsers/>
                     </Tabs.Panel>
-                    <Tabs.Panel value="Regionen">
+                    <Tabs.Panel value="Regions">
                         <AdminRegions/>
                     </Tabs.Panel>
-                    <Tabs.Panel value="Allgemein">
+                    <Tabs.Panel value="General">
                         <AdminGeneral/>
                     </Tabs.Panel>
                 </Tabs>

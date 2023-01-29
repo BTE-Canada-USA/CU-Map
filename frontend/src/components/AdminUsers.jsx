@@ -86,7 +86,7 @@ const AdminUsers = (props) => {
                     }}
                 >
                     {element.enabled ? (
-                        <Tooltip label="Sperren">
+                        <Tooltip label="Lock">
                             <ActionIcon
                                 color="red"
                                 variant="light"
@@ -96,7 +96,7 @@ const AdminUsers = (props) => {
                             </ActionIcon>
                         </Tooltip>
                     ) : (
-                        <Tooltip label="Entsperren">
+                        <Tooltip label="Unlock">
                             <ActionIcon
                                 color="green"
                                 variant="light"
@@ -119,10 +119,10 @@ const AdminUsers = (props) => {
                 <Table>
                     <thead>
                         <tr>
-                            <th>Benutzername</th>
+                            <th>Username</th>
                             <th>E-Mail Adresse</th>
                             <th>Tags</th>
-                            <th>Aktionen</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>{rows}</tbody>
