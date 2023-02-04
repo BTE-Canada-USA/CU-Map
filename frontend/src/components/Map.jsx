@@ -27,6 +27,8 @@ import socketIOClient from "socket.io-client";
 import {TbPlugConnectedX} from "react-icons/tb";
 import generate3DLayer from "../utils/generate3DLayer";
 
+import PlayerList from "./PlayerList";
+
 
 const Map = forwardRef(({openDialog, setRegionViewData, updateMap, setUpdateMap}, ref) => {
     mapboxgl.accessToken = 'pk.eyJ1IjoibmFjaHdhaGwiLCJhIjoiY2tta3ZkdXJ2MDAwbzJ1cXN3ejM5N3NkcyJ9.t2yFHFQzb2PAHvPHF16sFw';
@@ -53,9 +55,20 @@ const Map = forwardRef(({openDialog, setRegionViewData, updateMap, setUpdateMap}
         });
 
         socket.on("playerLocations", data => {
-            setPlayers(JSON.parse(data))
+            let players = JSON.parse(data);
+            let items = [];
 
+            if (players && players.features && players.features.length) {
+                
+                for (let i = 0; i < players.features.length; i++) {
+                    if (players.features[i].properties.uuid != '')
+                        items.push(players.features[i]);
+                }
 
+                players.features = items;
+            }           
+
+            setPlayers(players)
         });
 
         socket.on('disconnect', () => {
@@ -130,7 +143,7 @@ const Map = forwardRef(({openDialog, setRegionViewData, updateMap, setUpdateMap}
 
 
     useEffect(() => {
-        if (map) return; // initialize map only once
+        if (map) return; // initialize map only once   
 
         class HidePlayerControl {
             onAdd(map) {
@@ -206,11 +219,11 @@ const Map = forwardRef(({openDialog, setRegionViewData, updateMap, setUpdateMap}
     }, [updateMap])
 
     const updateRegions = async () => {
-
         let regions = await axios.get("/api/v1/region/all/geojson")
-        map.getSource('regions').setData(regions.data);
+        map.getSource('regions').data(regions.data);
         setUpdateMap(false);
     }
+
     useEffect(() => {
         if (map) {
             map.on('load', () => {
@@ -415,6 +428,7 @@ const Map = forwardRef(({openDialog, setRegionViewData, updateMap, setUpdateMap}
                     </Box>
                 }
                 <LoadingOverlay visible={showLoadingOverlay}/>
+                <PlayerList players={players} map={map} />
                 <div ref={mapContainer} style={{width: "100%", height: "100%"}}/>
             </div>
         </SpotlightProvider>

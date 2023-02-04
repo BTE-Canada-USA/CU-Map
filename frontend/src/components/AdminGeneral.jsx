@@ -88,10 +88,10 @@ const AdminGeneral = props => {
             <Paper withBorder shadow={"md"} radius={"md"} p={"xl"} mt={"md"}>
                 <Group>
                     <Title>Buildings</Title>
-                    <Badge>Current {allBuildingsCount} Buildings</Badge>
+                    <Badge>Currently {allBuildingsCount} Buildings</Badge>
                 </Group>
 
-                <Button mt={"xl"} loading={progress > 0} onClick={() => start()}>Anzahl der Buildings berechnen</Button>
+                <Button mt={"xl"} loading={progress > 0} onClick={() => start()}>Calculate number of buildings</Button>
                 <Checkbox label={"New regions only (regions with count > 0 will be skipped."} mt={"md"}
                           value={skipOld} onChange={(event) => setSkipOld(event.currentTarget.checked)}/>
                 {
